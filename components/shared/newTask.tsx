@@ -1,7 +1,7 @@
 "use client"
 import { cn } from "@/lib/utils"
+import { PencilLine } from "lucide-react"
 import React, { useState } from "react"
-import { Button } from "../ui/button"
 import { Input } from "../ui/input"
 
 interface Props {
@@ -37,12 +37,11 @@ export const NewTask: React.FC<Props> = ({ addTask }) => {
 				placeholder={error ? "Пусто?" : "Новая задача..."}
 			/>
 
-			{/* <PencilLine
+			<PencilLine
 				onClick={handleAddTask}
 				className="absolute top-1/2 translate-y-[-50%] right-6 cursor-pointer hover:text-gray-600"
 				size={20}
-			/> */}
-			<Button className="bg-primary">test</Button>
+			/>
 		</div>
 	)
 }
