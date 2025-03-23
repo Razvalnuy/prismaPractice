@@ -18,7 +18,7 @@ export const TaskManager: React.FC = () => {
 		async function get() {
 			try {
 				setLoader(true)
-				const { data } = await Api.Tasks.getTasks()
+				const data = await Api.Tasks.getTasks()
 				setTasks(data)
 			} catch (err) {
 				console.log("Ошибка загрузки задач:", err)
@@ -31,7 +31,7 @@ export const TaskManager: React.FC = () => {
 
 	const addTask = async (text: string) => {
 		try {
-			const { data } = await Api.Tasks.addedTask(text)
+			const data = await Api.Tasks.addedTask(text)
 			setTasks((prevTasks) => [
 				...prevTasks,
 				{ id: data.id, text: data.text, isChecked: false },
@@ -50,7 +50,7 @@ export const TaskManager: React.FC = () => {
 				),
 			])
 
-			const { status } = await Api.Tasks.updateTask(id, isChecked)
+			const status = await Api.Tasks.updateTask(id, isChecked)
 			if (!status) {
 				throw new Error("Ошибка обновления задачи")
 			}
@@ -65,7 +65,7 @@ export const TaskManager: React.FC = () => {
 		try {
 			setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id))
 
-			const { status } = await Api.Tasks.deleteTask(id)
+			const status = await Api.Tasks.deleteTask(id)
 			if (!status) {
 				throw new Error("Ошибка удаления задачи")
 			}
