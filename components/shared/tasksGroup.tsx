@@ -26,16 +26,21 @@ export const TasksGroup: React.FC<Props> = ({
 	return (
 		<div className="flex flex-col w-full max-w-[600px] mx-auto gap-2 px-4">
 			{loader &&
-				[...Array(tasks?.length || 10)].map((_, index) => (
+				[...Array(tasks?.length || 6)].map((_, index) => (
 					<Skeleton
 						key={index}
 						className="flex justify-between border rounded-2xl px-2 py-2 items-center w-full"
 					>
 						<div className="flex items-center">
-							<EyeClosed size={15} className="cursor-pointer mr-2" />
-							<label className="cursor-pointer text-sm sm:text-base">Загрузка...</label>
+							<EyeClosed size={20} className="cursor-pointer mr-2" />
+							<label className="max-w-[500px] w-full break-words text-xl sm:text-base">
+								Загрузка...
+							</label>
 						</div>
-						<X size={15} className="text-red-800 cursor-pointer flex-shrink-0" />
+						<X
+							size={20}
+							className="text-red-800 cursor-pointer flex-shrink-0"
+						/>
 					</Skeleton>
 				))}
 
